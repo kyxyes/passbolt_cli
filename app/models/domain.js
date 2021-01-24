@@ -39,7 +39,7 @@ class Domain extends Model {
         if (typeof value === 'undefined' || value === '') {
           return new Error(i18n.__('The url should not be be empty'));
         }
-        if (!validator.isURL(value)) {
+        if (!validator.isURL(value, {require_tld: false})) {
           return new Error('This is not a valid domain url');
         }
         break;
